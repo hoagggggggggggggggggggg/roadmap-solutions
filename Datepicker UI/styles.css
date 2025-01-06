@@ -1,0 +1,107 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 2rem;
+    background: #f5f5f5;
+}
+
+/* Date picker container */
+.datepicker-wrapper {
+    width: 300px;
+    position: relative;
+}
+
+/* Input group styling */
+.input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.date-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.calendar-button {
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calendar-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+/* Calendar panel styling */
+.calendar-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 16px;
+}
+
+/* Calendar header */
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.month-nav {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.current-month {
+    font-weight: 500;
+}
+
+/* Calendar grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+}
+
+.weekday {
+    font-weight: 500;
+    color: #666;
+    padding: 8px 0;
+}
+
+.date {
+    padding: 8px 0;
+    border-radius: 4px;
+}
+
+.date:hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+.date.current {
+    background: #e6f2ff;
+    color: #0066cc;
+}
