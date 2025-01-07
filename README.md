@@ -5,3 +5,4 @@
 - [Changelog Component](https://roadmap.sh/projects/changelog-component)
 - [Datepicker UI](https://roadmap.sh/projects/datepicker-ui)
 - [Temperature Converter](https://roadmap.sh/projects/temperature-converter)
+- [Cookie Consent](https://roadmap.sh/projects/cookie-consent)
