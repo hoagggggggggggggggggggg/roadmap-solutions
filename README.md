@@ -6,3 +6,4 @@
 - [Datepicker UI](https://roadmap.sh/projects/datepicker-ui)
 - [Temperature Converter](https://roadmap.sh/projects/temperature-converter)
 - [Cookie Consent](https://roadmap.sh/projects/cookie-consent)
+- [Weather app](https://roadmap.sh/projects/weather-app)
