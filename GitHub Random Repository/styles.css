@@ -1,0 +1,142 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Header Styling */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 8px;
+}
+
+.header h1 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* Language Selector (Always Visible) */
+.select-wrapper {
+    margin-bottom: 20px;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    appearance: none;
+    background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
+    background-position: calc(100% - 12px) center;
+}
+
+/* State Styling */
+.state {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none; /* Hide by default */
+}
+
+.message {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    color: #666;
+}
+
+.message.error {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.retry-button,
+.refresh-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.retry-button:hover,
+.refresh-button:hover {
+    background-color: #0056b3;
+    opacity: 0.9;
+}
+
+.repository-card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 16px;
+    margin: 20px 0;
+}
+
+.repository-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.repository-card p {
+    color: #666;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.stats {
+    display: flex;
+    gap: 16px;
+    color: #666;
+    font-size: 14px;
+}
+
+.language::before {
+    content: "●";
+    color: #f1e05a;
+    margin-right: 4px;
+}
+
+.repo-link {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.repo-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Initial State Visibility */
+.empty-state {
+    display: block; /* Show empty state by default */
+}
