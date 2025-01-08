@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repository Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo"></div>
+            <h1>GitHub Repository Finder</h1>
+        </div>
+
+        <!-- Language Selector (Always Visible) -->
+        <div class="select-wrapper">
+            <select>
+                <option value="" disabled selected>Select a Language</option>
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+            </select>
+        </div>
+
+        <!-- Empty State -->
+        <div class="state empty-state">
+            <div class="message">
+                Please select a language to start searching for repositories.
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div class="state loading-state">
+            <div class="message">
+                Loading, please wait...
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div class="state error-state">
+            <div class="message error">
+                Error fetching repositories. Please try again.
+            </div>
+            <button class="retry-button">Retry</button>
+        </div>
+
+        <!-- Result State -->
+        <div class="state result-state">
+            <div class="repository-card">
+                <h3><a href="#" target="_blank" class="repo-link">Repository Name</a></h3>
+                <p>Repository description will appear here.</p>
+                <div class="stats">
+                    <span class="language">Language</span>
+                    <span class="stars">★ Stars</span>
+                    <span class="forks">⑂ Forks</span>
+                    <span class="issues">◎ Issues</span>
+                </div>
+            </div>
+            <button class="refresh-button">Refresh</button>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
