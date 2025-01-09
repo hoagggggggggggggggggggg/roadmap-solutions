@@ -8,3 +8,4 @@
 - [Cookie Consent](https://roadmap.sh/projects/cookie-consent)
 - [Weather app](https://roadmap.sh/projects/weather-app)
 - [GitHub Random Repository](https://roadmap.sh/projects/github-random-repo)
+- [Custom Dropdown](https://roadmap.sh/projects/custom-dropdown)
