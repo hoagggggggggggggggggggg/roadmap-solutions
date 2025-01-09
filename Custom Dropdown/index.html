@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Select Dropdown</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="custom-select">
+        <div class="select-button" onclick="toggleDropdown(this)">
+            <span class="select-label">Select an Item</span>
+            <span class="select-arrow">▼</span>
+        </div>
+        <div class="dropdown-menu">
+            <div class="dropdown-item" onclick="selectItem(this)">First Item</div>
+            <div class="dropdown-item" onclick="selectItem(this)">Second Item</div>
+            <div class="dropdown-item" onclick="selectItem(this)">Third Item</div>
+            <div class="dropdown-item" onclick="selectItem(this)">Fourth Item</div>
+            <div class="dropdown-item" onclick="selectItem(this)">Fifth Item</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(button) {
+            const dropdown = button.parentElement;
+            dropdown.classList.toggle('open');
+        }
+
+        function selectItem(item) {
+            const dropdown = item.parentElement.parentElement;
+            const button = dropdown.querySelector('.select-label');
+            button.textContent = item.textContent;
+            
+            // Remove selected class from all items
+            const items = dropdown.querySelectorAll('.dropdown-item');
+            items.forEach(i => i.classList.remove('selected'));
+            
+            // Add selected class to clicked item
+            item.classList.add('selected');
+            
+            // Close dropdown
+            dropdown.classList.remove('open');
+        }
+    </script>
+</body>
+</html>
