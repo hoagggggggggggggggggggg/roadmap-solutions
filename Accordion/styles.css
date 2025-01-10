@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.accordion-item {
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.125rem;
+}
+
+.accordion-header:hover {
+    background-color: #222;
+}
+
+.chevron {
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .chevron {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    background: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 200px;
+    border: 2px solid #e5e5e5;
+    border-top: none;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+}
+
+.accordion-content p {
+    padding: 1rem 1.5rem;
+    color: #333;
+}
+
+/* Add subtle shadow effect */
+.accordion-item {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
