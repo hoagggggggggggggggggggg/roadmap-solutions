@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tab headers -->
+        <div class="tabs">
+            <button class="tab-button active" data-tab="1">First Tab</button>
+            <button class="tab-button" data-tab="2">Second Tab</button>
+            <button class="tab-button" data-tab="3">Third Tab</button>
+            <button class="tab-button" data-tab="4">Fourth Tab</button>
+        </div>
+
+        <!-- Tab content -->
+        <div class="tab-content">
+            <div class="tab-pane active" data-content="1">
+                First Tab content to be displayed here.
+            </div>
+            <div class="tab-pane" data-content="2">
+                Second Tab content to be displayed here.
+            </div>
+            <div class="tab-pane" data-content="3">
+                Third Tab content to be displayed here.
+            </div>
+            <div class="tab-pane" data-content="4">
+                Fourth Tab content to be displayed here.
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <p class="instructions">
+            Clicking each tab should hide the content of the other tab and show the content of clicked tab. 
+            By default, enable the first tab.
+        </p>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
