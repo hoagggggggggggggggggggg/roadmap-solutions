@@ -11,3 +11,4 @@
 - [Custom Dropdown](https://roadmap.sh/projects/custom-dropdown)
 - [Restricted Textarea](https://roadmap.sh/projects/restricted-textarea)
 - [Age Calculator](https://roadmap.sh/projects/age-calculator)
+- [Tabs](https://roadmap.sh/projects/simple-tabs)
