@@ -12,3 +12,4 @@
 - [Restricted Textarea](https://roadmap.sh/projects/restricted-textarea)
 - [Age Calculator](https://roadmap.sh/projects/age-calculator)
 - [Tabs](https://roadmap.sh/projects/simple-tabs)
+- [Accordion](https://roadmap.sh/projects/accordion)
