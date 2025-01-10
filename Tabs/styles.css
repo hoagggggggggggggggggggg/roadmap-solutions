@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Tab buttons styling */
+.tabs {
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 2rem;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    color: #999;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.tab-button:hover {
+    color: #666;
+}
+
+.tab-button.active {
+    color: #000;
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+/* Tab content styling */
+.tab-content {
+    background-color: #000;
+    color: #fff;
+    padding: 4rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Instructions styling */
+.instructions {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+}
