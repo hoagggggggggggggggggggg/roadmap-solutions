@@ -2,12 +2,15 @@
 let timer = null;
 let sessionType = "Work"; // Work, Short Break, Long Break
 let workSessions = 0;
+let isRunning = false;
+let startTime = null; // Start time of the current session
+let pauseTime = null; // Pause timestamp
+let remainingTime = 25 * 60 * 1000; // Default work duration in milliseconds
 
 const state = {
-  workDuration: 25 * 60,
-  shortBreak: 5 * 60,
-  longBreak: 15 * 60,
-  remainingTime: 25 * 60,
+  workDuration: 25 * 60 * 1000, // in milliseconds
+  shortBreak: 5 * 60 * 1000, // in milliseconds
+  longBreak: 15 * 60 * 1000, // in milliseconds
 };
 
 // DOM Elements
@@ -21,10 +24,15 @@ const longBreakInput = document.getElementById("long-break");
 const workSessionsElement = document.getElementById("work-sessions");
 
 // Functions
+function formatTime(milliseconds) {
+  const totalSeconds = Math.floor(milliseconds / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
+
 function updateDisplay() {
-  const minutes = Math.floor(state.remainingTime / 60);
-  const seconds = state.remainingTime % 60;
-  timeElement.textContent = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  timeElement.textContent = formatTime(remainingTime);
   sessionTypeElement.textContent = sessionType;
 }
 
@@ -33,10 +41,10 @@ function switchSession() {
     workSessions++;
     workSessionsElement.textContent = workSessions;
     sessionType = workSessions % 4 === 0 ? "Long Break" : "Short Break";
-    state.remainingTime = sessionType === "Long Break" ? state.longBreak : state.shortBreak;
+    remainingTime = sessionType === "Long Break" ? state.longBreak : state.shortBreak;
   } else {
     sessionType = "Work";
-    state.remainingTime = state.workDuration;
+    remainingTime = state.workDuration;
   }
   updateDisplay();
   playSound();
@@ -48,26 +56,51 @@ function playSound() {
 }
 
 function startTimer() {
-  timer = setInterval(() => {
-    state.remainingTime--;
-    updateDisplay();
-    if (state.remainingTime <= 0) {
-      clearInterval(timer);
-      switchSession();
-      startTimer();
+  if (!isRunning) {
+    isRunning = true;
+    startTime = Date.now();
+    if (pauseTime) {
+      // Adjust remaining time after resuming
+      startTime -= pauseTime;
+      pauseTime = null;
     }
-  }, 1000);
+    runTimer();
+  }
+}
+
+function runTimer() {
+  if (!isRunning) return;
+
+  const now = Date.now();
+  const elapsedTime = now - startTime;
+
+  remainingTime -= elapsedTime;
+  startTime = now;
+
+  if (remainingTime <= 0) {
+    switchSession();
+    remainingTime = state.remainingTime;
+    startTime = now;
+  }
+
+  updateDisplay();
+
+  // Continue with requestAnimationFrame
+  timer = requestAnimationFrame(runTimer);
 }
 
 function stopTimer() {
-  clearInterval(timer);
-  timer = null;
+  if (isRunning) {
+    isRunning = false;
+    pauseTime = Date.now() - startTime; // Store paused time
+    cancelAnimationFrame(timer);
+  }
 }
 
 function resetTimer() {
   stopTimer();
   sessionType = "Work";
-  state.remainingTime = state.workDuration;
+  remainingTime = state.workDuration;
   workSessions = 0;
   workSessionsElement.textContent = workSessions;
   updateDisplay();
@@ -75,7 +108,7 @@ function resetTimer() {
 
 // Event Listeners
 startStopButton.addEventListener("click", () => {
-  if (timer) {
+  if (isRunning) {
     stopTimer();
     startStopButton.textContent = "Start";
   } else {
@@ -90,16 +123,16 @@ resetButton.addEventListener("click", () => {
 });
 
 workDurationInput.addEventListener("change", (e) => {
-  state.workDuration = parseInt(e.target.value) * 60;
+  state.workDuration = parseInt(e.target.value) * 60 * 1000;
   if (sessionType === "Work") resetTimer();
 });
 
 shortBreakInput.addEventListener("change", (e) => {
-  state.shortBreak = parseInt(e.target.value) * 60;
+  state.shortBreak = parseInt(e.target.value) * 60 * 1000;
 });
 
 longBreakInput.addEventListener("change", (e) => {
-  state.longBreak = parseInt(e.target.value) * 60;
+  state.longBreak = parseInt(e.target.value) * 60 * 1000;
 });
 
 // Initialize Display
