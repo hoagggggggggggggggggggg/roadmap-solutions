@@ -16,3 +16,4 @@
 - [Tooltip UI](https://roadmap.sh/projects/tooltip-ui)
 - [Accessible form UI](https://roadmap.sh/projects/accessible-form-ui)
 - [Task Tracker](https://roadmap.sh/projects/task-tracker-js)
+- [Pomodoro Timer](https://roadmap.sh/projects/pomodoro-timer)
