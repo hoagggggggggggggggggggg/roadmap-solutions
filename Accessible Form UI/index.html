@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <form class="profile-form">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="What should we call you?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="john@doe.com" class="error" required>
+                    <span class="error-message">Email is already taken</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Enter Password</label>
+                    <div class="password-input">
+                        <input type="password" id="password" value="xxxxxxxx" required>
+                        <button type="button" class="toggle-password" aria-label="Show password">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-input">
+                        <input type="password" id="confirmPassword" value="xxxxxxxx" required>
+                        <button type="button" class="toggle-password" aria-label="Show password">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="update-button">Update Profile</button>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-container">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="progress-circle-bg" cx="50" cy="50" r="46" />
+                            <circle class="progress-circle-path" cx="50" cy="50" r="46" />
+                        </svg>
+                        <span class="progress-text">65%</span>
+                    </div>
+                    <h2>Profile Completeness</h2>
+                </div>
+
+                <div class="checklist">
+                    <p class="completed">Create Account</p>
+                    <p class="completed">Update Roadmap Progress</p>
+                    <p class="completed">Setup Public Profile</p>
+                    <p>Complete your first project</p>
+                    <p>Invite your Friends</p>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
